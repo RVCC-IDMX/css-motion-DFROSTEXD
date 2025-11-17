@@ -44,6 +44,17 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
+  /* Fun but professional font stack */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.6;
+  
+  /* Light brown background */
+  background-color: #d4c4b0;
+  
+  /* 10px border around the page */
+  border: 20px solid #3a3a3a;
+  border-radius: 20px;
 
   /* You'll add: background color, text color, font-family */
 }
@@ -100,13 +111,21 @@ main {
 }
 
 .motion-section h2 {
+  text-align: center;
   /* You'll add: font-size, font-weight, color, text-align */
 }
+
 
 /* ============================================
    SECTION 1: MICRO INTERACTION
    Container for single interactive element
    ============================================ */
+#micro-interaction {
+  border: 10px solid #3a3a3a;
+  padding: var(--space-lg);
+  border-radius: 20px;
+}
+
 .micro-demo {
   /* Center the element */
   display: flex;
@@ -119,9 +138,17 @@ main {
 
 .interactive-element {
   /* Basic button reset */
-  border: none;
+  border: 3px solid #2d5016;
   cursor: pointer;
   padding: var(--space-md) var(--space-lg);
+  
+  /* Dark green background */
+  background-color: #4a7c2c;
+  color: white;
+  border-radius: 8px;
+  
+  /* Transition for smooth scaling */
+  transition: transform 0.4s ease;
 
   /* You'll add:
      - All styling (colors, fonts, borders, etc.)
@@ -131,10 +158,20 @@ main {
   */
 }
 
+.interactive-element:hover {
+  transform: scale(1.1);
+}
+
 /* ============================================
    SECTION 2: TIMING COMPARISON
    Side-by-side comparison container
    ============================================ */
+#timing-comparison {
+  border: 10px solid #3a3a3a;
+  padding: var(--space-lg);
+  border-radius: 20px;
+}
+
 .comparison-container {
   /* Responsive layout: side-by-side on larger screens, stacked on mobile */
   display: flex;
@@ -157,10 +194,20 @@ main {
 
 .timing-button {
   /* Basic button reset */
-  border: none;
+  border: 3px solid #2d5016;
   cursor: pointer;
   padding: var(--space-md) var(--space-lg);
   width: 100%;
+  
+  /* Styling matching card-front */
+  background: linear-gradient(135deg, #4a7c2c 0%, #6ba83d 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  /* Same duration for both buttons */
+  transition-duration: 0.5s;
+  transition-property: transform;
 
   /* You'll add:
      - All styling (colors, fonts, borders, etc.)
@@ -171,6 +218,20 @@ main {
   */
 }
 
+/* Different timing functions for each button */
+.timing-one {
+  transition-timing-function: ease-in-out;
+}
+
+.timing-two {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Same transform for both buttons on hover */
+.timing-button:hover {
+  transform: translateY(-10px);
+}
+
 .timing-label {
   /* You'll add: font-size, color, font-weight */
 }
@@ -179,6 +240,11 @@ main {
    SECTION 3: FEATURE CARD (3D FLIP)
    Card flip structure based on Kevin Powell tutorial
    ============================================ */
+#feature-card {
+  border: 10px solid #3a3a3a;
+  padding: var(--space-lg);
+  border-radius: 20px;
+}
 
 /* Outer container - centers the card */
 .card-container {
@@ -187,6 +253,9 @@ main {
   justify-content: center;
   align-items: center;
   padding: var(--space-xl);
+  
+  /* Perspective for 3D effect */
+  perspective: 1000px;
 
   /* You'll add: background, perspective value for 3D effect */
 }
@@ -197,6 +266,12 @@ main {
   width: var(--card-width);
   height: var(--card-height);
   position: relative;
+  
+  /* Enable 3D transforms */
+  transform-style: preserve-3d;
+  
+  /* Smooth transition for rotation */
+  transition: transform 0.6s ease;
 
   /* This enables 3D transforms for child elements */
   /* You'll add: transform-style: preserve-3d */
@@ -211,7 +286,7 @@ main {
   height: 100%;
 
   /* Prevent back face from showing through */
-  /* You'll add: backface-visibility: hidden */
+  backface-visibility: hidden;
 
   /* Layout for content inside face */
   display: flex;
@@ -226,27 +301,42 @@ main {
 
 /* Front face - visible by default */
 .card-front {
+  background: linear-gradient(135deg, #4a7c2c 0%, #6ba83d 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 3px solid #2d5016;
   /* You'll add: any front-specific styling */
 }
 
 /* Back face - rotated 180 degrees */
 .card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #4a7c2c 0%, #6ba83d 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 3px solid #2d5016;
   /* You'll add: transform: rotateY(180deg) to flip this face */
   /* You'll add: any back-specific styling */
 }
 
 /* Hover/focus state for card */
-/* You'll add a rule like:
-   .card-container:hover .card-inner,
-   .card-container:focus-within .card-inner {
-     transform: rotateY(180deg);
-   }
-*/
+.card-container:hover .card-inner,
+.card-container:focus-within .card-inner {
+  transform: rotateY(180deg);
+}
 
 /* ============================================
    SECTION 4: ACCESSIBILITY & REFLECTION
    Text content sections
    ============================================ */
+#reflection {
+  border: 10px solid #3a3a3a;
+  padding: var(--space-lg);
+  border-radius: 20px;
+}
+
 .accessibility-note,
 .reflection-text {
   /* Basic spacing */
@@ -331,6 +421,36 @@ footer p {
    This is where YOU implement accessibility
    ============================================ */
 
+@media (prefers-reduced-motion: reduce) {
+  /* Disable transitions for interactive element */
+  .interactive-element {
+    transition: none;
+  }
+  
+  .interactive-element:hover {
+    /* Keep the visual change but remove animation */
+    transform: scale(1.1);
+  }
+  
+  /* Disable transitions for timing buttons */
+  .timing-button {
+    transition: none;
+  }
+  
+  .timing-button:hover {
+    /* Keep the visual change but remove animation */
+    transform: translateY(-10px);
+  }
+  
+  /* Disable card flip animation */
+  .card-inner {
+    transition: none;
+  }
+  
+  /* Alternative: Instead of flip, you could fade or use opacity change */
+  /* Or keep the flip but make it instant */
+}
+
 /*
   You MUST add a prefers-reduced-motion media query here.
 
@@ -386,3 +506,4 @@ footer p {
    - Layout should never jump or reflow
 
    ============================================ */
+
